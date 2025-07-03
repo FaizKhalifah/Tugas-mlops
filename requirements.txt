@@ -1,0 +1,13 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+jupyter
+dvc
+mlflow
+black
+pre-commit
+joblib
+skops
+gradio
