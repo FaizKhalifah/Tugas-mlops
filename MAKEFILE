@@ -1,0 +1,13 @@
+.PHONY: train evaluate deploy clean
+
+train:
+	python src/train_pipeline.py
+
+# evaluate:
+# 	python src/evaluate.py
+
+deploy:
+	python app/main.py
+
+clean:
+	rm -rf models/*.skops results/*.csv results/*.png
