@@ -39,9 +39,9 @@ jobs:
         name: trained-model
         path: models/
     
-    - name : Update branch
-      env:
-        NAME: ${{ secrets.USER_NAME }}
-        EMAIL: ${{ secrets.USER_EMAIL }}
-      run: make update-branch USER_NAME=$NAME USER_EMAIL=$EMAIL
+    # - name : Update branch
+    #   env:
+    #     NAME: ${{ secrets.USER_NAME }}
+    #     EMAIL: ${{ secrets.USER_EMAIL }}
+    #   run: make update-branch USER_NAME=$NAME USER_EMAIL=$EMAIL
         
