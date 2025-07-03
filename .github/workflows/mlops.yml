@@ -31,7 +31,7 @@ jobs:
     - name: Save evaluation result
       run: |
         ls results/
-        cat results/evaluation_metrics.csv
+        cat results/csv/evaluation_metrics.csv
 
     - name: Upload trained model
       uses: actions/upload-artifact@v4
