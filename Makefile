@@ -20,3 +20,16 @@ update-branch:
 	git remote set-url origin https://${TOKEN}@github.com/${REPO}.git
 	git commit -am "Update branch" || echo "Nothing to commit"
 	git push --force origin HEAD:update
+
+hf-login:
+	git pull origin2 update
+	git switch update
+	pip install -U "huggingface_hub[cli]"
+	huggingface-cli login --token ${HF} --add-to-git-credential
+
+push-hub:
+	huggingface-cli repo upload FaizKhalifah/tugasmlops ./app/app.py --repo-type=space --commit-message "Update app"
+	huggingface-cli repo upload FaizKhalifah/tugasmlops ./models/Logistic Regression.skops --repo-type=space --commit-message "Upload model"
+	huggingface-cli repo upload FaizKhalifah/tugasmlops ./results/matrix/confusion_matrix_Logistic Regression.png --repo-type=space --commit-message "Upload result"
+
+deploy: hf-login push-hub
