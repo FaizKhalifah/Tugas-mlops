@@ -5,9 +5,22 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+modelname = "Logistic Regression.skops"
 
+# Coba path di HF (semua di root folder)
+path1 = os.path.join("models", modelname)
+
+# Coba path di lokal (struktur: app/app.py, models/...)
+path2 = os.path.join("..", "models", modelname)
+
+# Pilih path yang ada
+if os.path.exists(path1):
+    model_path = path1
+elif os.path.exists(path2):
+    model_path = path2
+else:
+    raise FileNotFoundError("Model tidak ditemukan di path yang dicoba.")
 # Load model
-model_path = os.path.join(BASE_DIR, "..", "models", "Logistic Regression.skops")# bisa diganti model lain
 model = skops_io.load(model_path)
 
 # Label encoder (0 = Female, 1 = Male) → disesuaikan dari hasil training
