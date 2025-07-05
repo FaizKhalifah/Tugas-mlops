@@ -2,7 +2,7 @@ name: Continuous Deployment
 
 on:
   workflow_run:
-    workflows: ["Continuous Integration"]
+    workflows: ["Continuous integration"]
     types:
       - completed
   workflow_dispatch:

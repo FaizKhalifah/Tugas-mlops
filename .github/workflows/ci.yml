@@ -1,4 +1,4 @@
-name: MLOps Workflow
+name: Continous integration
 
 on:
   push:
