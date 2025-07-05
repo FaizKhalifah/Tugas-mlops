@@ -1,10 +1,6 @@
 .PHONY: train evaluate deploy clean
 
-update-branch:
-	git config --global user.name ${USER_NAME}
-	git config --global user.email ${USER_EMAIL}
-	git commit -am "Update branch"
-	git push --force origin HEAD:update
+
 
 train:
 	python src/train_pipeline.py
@@ -17,3 +13,9 @@ deploy:
 
 clean:
 	rm -rf models/*.skops results/*.csv results/*.png
+
+update-branch:
+	git config --global user.name ${USER_NAME}
+	git config --global user.email ${USER_EMAIL}
+	git commit -am "Update branch"
+	git push --force origin HEAD:update
