@@ -8,8 +8,7 @@ train:
 # evaluate:
 # 	python src/evaluate.py
 
-deploy:
-	python app/main.py
+
 
 clean:
 	rm -rf models/*.skops results/*.csv results/*.png
