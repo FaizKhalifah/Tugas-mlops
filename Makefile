@@ -22,10 +22,14 @@ update-branch:
 	git push --force origin HEAD:update
 
 hf-login:
-	git pull --no-rebase origin update --allow-unrelated-histories
+	git config --global user.name "${USER_NAME}"
+	git config --global user.email "${USER_EMAIL}"
 	git switch update
+	git pull origin update --allow-unrelated-histories
 	pip install -U "huggingface_hub[cli]"
+	git config --global credential.helper store
 	huggingface-cli login --token ${HF} --add-to-git-credential
+
 
 push-hub:
 	cd huggingface-space && \
