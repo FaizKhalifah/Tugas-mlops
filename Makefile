@@ -28,8 +28,10 @@ hf-login:
 	huggingface-cli login --token ${HF} --add-to-git-credential
 
 push-hub:
-	huggingface-cli repo upload FaizKhalifah/tugasmlops ./app/app.py --repo-type=space --commit-message "Update app"
-	huggingface-cli repo upload FaizKhalifah/tugasmlops ./models/Logistic Regression.skops --repo-type=space --commit-message "Upload model"
-	huggingface-cli repo upload FaizKhalifah/tugasmlops ./results/matrix/confusion_matrix_Logistic Regression.png --repo-type=space --commit-message "Upload result"
+	cd huggingface-space && \
+	git add . && \
+	git commit -m "Update space" || echo "Nothing to commit" && \
+	git push origin main
+
 
 deploy: hf-login push-hub
