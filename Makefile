@@ -37,7 +37,7 @@ push-hub:
 	cd huggingface-space && \
 	git config user.name "${USER_NAME}" && \
 	git config user.email "${USER_EMAIL}" && \
-	git remote set-url origin https://user:${HF}@huggingface.co/spaces/FaizKhalifah/tugasmlops\
+	git remote set-url origin https://user:${HF}@huggingface.co/spaces/FaizKhalifah/tugasmlops &&\
 	cp -r ../app/* ./ && \
 	cp -r ../models ./models && \
 	cp -r ../results ./results && \
