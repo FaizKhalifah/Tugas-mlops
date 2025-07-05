@@ -17,5 +17,6 @@ clean:
 update-branch:
 	git config --global user.name ${USER_NAME}
 	git config --global user.email ${USER_EMAIL}
+	git remote set-url origin https://${TOKEN}@github.com/${REPO}.git
 	git commit -am "Update branch" || echo "Nothing to commit"
 	git push --force origin HEAD:update
