@@ -35,7 +35,7 @@ push-hub:
 	cd huggingface-space && \
 	git add . && \
 	git commit -m "Update space" || echo "Nothing to commit" && \
-	git push origin main
+	git push origin 
 
 
 deploy: hf-login push-hub
