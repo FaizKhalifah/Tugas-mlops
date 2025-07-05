@@ -18,6 +18,13 @@ jobs:
     - name: Set up Python and Hugging Face CLI
       run: pip install -U "huggingface_hub[cli]"
 
+    - name: Set up Git LFS
+      run: |
+            sudo apt-get update
+            sudo apt-get install git-lfs
+            git lfs install
+
+
     - name: Deploy to Hugging Face Space
       env:
         HF: ${{ secrets.HF }}
