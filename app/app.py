@@ -1,9 +1,13 @@
 import gradio as gr
 import pandas as pd
 from skops import io as skops_io
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 # Load model
-model_path = "../models/Logistic Regression.skops"  # bisa diganti model lain
+model_path = os.path.join(BASE_DIR, "..", "models", "Logistic Regression.skops")# bisa diganti model lain
 model = skops_io.load(model_path)
 
 # Label encoder (0 = Female, 1 = Male) → disesuaikan dari hasil training
