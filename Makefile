@@ -17,5 +17,5 @@ clean:
 update-branch:
 	git config --global user.name ${USER_NAME}
 	git config --global user.email ${USER_EMAIL}
-	git commit -am "Update branch"
+	git commit -am "Update branch" || echo "Nothing to commit"
 	git push --force origin HEAD:update
