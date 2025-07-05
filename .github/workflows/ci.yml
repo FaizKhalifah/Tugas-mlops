@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  mlops:
+  Integration:
     runs-on: ubuntu-latest
 
     steps:
