@@ -14,4 +14,4 @@ Check out the configuration reference at https://huggingface.co/docs/hub/spaces-
 # About this project
 
 This is a project for Machine learning operations lecture. This project is using a gender dataset. The 
-model is using logisctic regression for training and using gradio for appreance
+model is using logisctic regression for training and using gradio for appreance. We use hugging space for production
