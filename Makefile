@@ -32,10 +32,19 @@ hf-login:
 
 
 push-hub:
+	rm -rf huggingface-space
+	git clone https://huggingface.co/spaces/FaizKhalifah/tugasmlops huggingface-space
 	cd huggingface-space && \
+	git config user.name "${USER_NAME}" && \
+	git config user.email "${USER_EMAIL}" && \
+	git remote set-url origin https://${HF}@huggingface.co/spaces/FaizKhalifah/tugasmlops && \
+	cp -r ../app/* ./ && \
+	cp -r ../models ./models && \
+	cp -r ../results ./results && \
 	git add . && \
 	git commit -m "Update space" || echo "Nothing to commit" && \
-	git push origin 
+	git push origin main
+
 
 
 deploy: hf-login push-hub
