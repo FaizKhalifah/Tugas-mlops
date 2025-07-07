@@ -31,12 +31,15 @@ The model used is **Logistic Regression**, and it is deployed using **Gradio** f
 
 ## ⚙️ Tech Stack
 
-- **Python**
-- **Scikit-learn** – model training
-- **Gradio** – frontend interface
-- **Hugging Face Spaces** – model hosting
-- **DVC (optional)** – versioning data and models
-- **GitHub Actions (optional)** – automation for CI/CD
+| Tool               | Description                                      |
+|--------------------|--------------------------------------------------|
+| **Python**         | Main programming language                        |
+| **Scikit-learn**   | Model development and evaluation                 |
+| **Gradio**         | Frontend user interface                          |
+| **Hugging Face**   | Hosting and production deployment (Spaces)       |
+| **GitHub**         | Code version control                             |
+| **GitHub Actions** | CI/CD automation workflow                        |
+| **Docker**         | Data and model versioning                        |
 
 ---
 
@@ -44,7 +47,18 @@ The model used is **Logistic Regression**, and it is deployed using **Gradio** f
 
 - **Model Type**: Logistic Regression
 - **Task**: Gender prediction
-- **Input**: Structured data features (e.g., height, weight, etc.)
+- **Input**: Structured data features (Long Hair, Forehead Width, Forehead Height, Nose Wide, Nose Long, Lips Thin)
 - **Output**: Gender classification – Male or Female
 
 ---
+
+## 👥 Tim & Kontribusi
+
+| Nama Lengkap                             | NIM              |
+|------------------------------------------|------------------|
+| Raihan Fadhillah Baihaqi                 | 225150207111069  |
+| Hernando Atha                            | 225150207111075  |
+| Muhammad Alfaiz Khalifah Alamsyah        | 225150207111066  |
+| Qyan Rommy Mario                         | 225150200111034  |
+| Davin Dalana Fidelio Fredra              | 225150201111029  |
+
