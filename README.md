@@ -19,6 +19,15 @@ The model used is **Logistic Regression**, and it is deployed using **Gradio** f
 
 ---
 
+## 📊 Dataset
+
+- **Nama**: `gender.csv`  
+- **Tipe**: CSV (Comma Separated Values)  
+- **Deskripsi**: Dataset ini digunakan untuk mengklasifikasikan jenis kelamin berdasarkan fitur wajah.  
+- **Tautan**: [Kaggle Dataset](https://www.kaggle.com/datasets/elakiricoder/gender-classification-dataset)
+
+---
+
 ## 💡 Features
 
 - Gender classification model using logistic regression
@@ -29,17 +38,29 @@ The model used is **Logistic Regression**, and it is deployed using **Gradio** f
 
 ---
 
+## 🧠 Algoritma Model
+
+- **Model**: Gaussian Naive Bayes  
+- **Alasan Pemilihan**:
+  - Sangat cocok untuk fitur numerik atau kontinu seperti `forehead_width_cm` dan `forehead_height_cm`.
+  - Mengasumsikan distribusi Gaussian pada fitur untuk tiap kelas (Pria/Wanita).
+  - Efisien dalam perhitungan probabilitas.
+  - Cepat dalam pelatihan dan prediksi.
+  - Efektif meskipun data pelatihan terbatas.
+
+---
+
 ## ⚙️ Tech Stack
 
-| Tool               | Description                                      |
-|--------------------|--------------------------------------------------|
-| **Python**         | Main programming language                        |
-| **Scikit-learn**   | Model development and evaluation                 |
-| **Gradio**         | Frontend user interface                          |
-| **Hugging Face**   | Hosting and production deployment (Spaces)       |
-| **GitHub**         | Code version control                             |
-| **GitHub Actions** | CI/CD automation workflow                        |
-| **Docker**         | Data and model versioning                        |
+| Tools              | Deskripsi                                      |
+|-------------------|-----------------------------------------------|
+| **Python**         | Bahasa pemrograman utama                      |
+| **Scikit-learn**   | Library untuk model GaussianNB                |
+| **Gradio**         | UI interaktif berbasis Python                 |
+| **Hugging Face Spaces** | Platform hosting dan deployment          |
+| **GitHub**         | Repositori kode dan pengaturan CI/CD          |
+| **Google Colab**   | Tempat eksplorasi dan pelatihan model awal    |
+| **Docker**   | Tempat eksplorasi dan pelatihan model awal    |
 
 ---
 
@@ -62,3 +83,14 @@ The model used is **Logistic Regression**, and it is deployed using **Gradio** f
 | Qyan Rommy Mario                         | 225150200111034  |
 | Davin Dalana Fidelio Fredra              | 225150201111029  |
 
+---
+
+## 🏫 Institusi
+
+- **Program Studi**: Teknik Informatika  
+- **Departemen**: Teknik Informatika  
+- **Fakultas**: Ilmu Komputer  
+- **Universitas**: Universitas Brawijaya – Malang  
+- **Tahun**: 2025
+
+---
