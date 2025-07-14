@@ -41,10 +41,10 @@ push-hub:
 	cd huggingface-space && \
 	git config user.name "${USER_NAME}" && \
 	git config user.email "${USER_EMAIL}" && \
-	git add .gitattributes && \
-	git add . && \
 	git lfs install && \
 	git lfs track "*.skops" "*.png" "*.csv" && \
+	git add .gitattributes && \
+	git add . && \
 	git commit -m "Update space" || echo "Nothing to commit" && \
 	git push origin main
 
