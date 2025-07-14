@@ -23,25 +23,33 @@ else:
 # Load model
 model = skops_io.load(model_path)
 
-# Label encoder (0 = Female, 1 = Male) → disesuaikan dari hasil training
-label_map = {0: "Female", 1: "Male"}
+# Coba ambil label encoder dari model jika ada attribute classes_
+if hasattr(model, 'classes_'):
+    label_classes = list(model.classes_)
+    # Asumsi label_classes berisi ['Female', 'Male'] atau sebaliknya
+    label_map = {i: label for i, label in enumerate(label_classes)}
+else:
+    # Fallback ke mapping default
+    label_map = {0: "Female", 1: "Male"}
 
-# Fungsi prediksi
+# Fungsi prediksi dengan error handling
+
 def predict_gender(long_hair, forehead_width_cm, forehead_height_cm, nose_wide,
                    nose_long, lips_thin, distance_nose_to_lip_long):
-    
-    input_df = pd.DataFrame([{
-        "long_hair": int(long_hair),
-        "forehead_width_cm": forehead_width_cm,
-        "forehead_height_cm": forehead_height_cm,
-        "nose_wide": int(nose_wide),
-        "nose_long": int(nose_long),
-        "lips_thin": int(lips_thin),
-        "distance_nose_to_lip_long": int(distance_nose_to_lip_long),
-    }])
-
-    pred = model.predict(input_df)[0]
-    return label_map.get(pred, "Unknown")
+    try:
+        input_df = pd.DataFrame([{
+            "long_hair": int(long_hair),
+            "forehead_width_cm": float(forehead_width_cm),
+            "forehead_height_cm": float(forehead_height_cm),
+            "nose_wide": int(nose_wide),
+            "nose_long": int(nose_long),
+            "lips_thin": int(lips_thin),
+            "distance_nose_to_lip_long": int(distance_nose_to_lip_long),
+        }])
+        pred = model.predict(input_df)[0]
+        return label_map.get(pred, str(pred))
+    except Exception as e:
+        return f"Error: {str(e)}"
 
 # Gradio UI
 interface = gr.Interface(

@@ -1,0 +1,12 @@
+digest: b05097bb
+name: dataset
+profile: '{"num_rows": 1050, "num_elements": 7350}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "long_hair", "required": true},
+  {"type": "double", "name": "forehead_width_cm", "required": true}, {"type": "double",
+  "name": "forehead_height_cm", "required": true}, {"type": "long", "name": "nose_wide",
+  "required": true}, {"type": "long", "name": "nose_long", "required": true}, {"type":
+  "long", "name": "lips_thin", "required": true}, {"type": "long", "name": "distance_nose_to_lip_long",
+  "required": true}]}'
+source: '{"tags": {"mlflow.user": "Faiz", "mlflow.source.name": "train_pipeline.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "c7de9529482d8c52f5f4c39215a5f811406c6cd5"}}'
+source_type: code
