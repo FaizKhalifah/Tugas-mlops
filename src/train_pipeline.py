@@ -1,5 +1,6 @@
 import pandas as pd
 import seaborn as sns
+import mlflow
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -10,6 +11,12 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.preprocessing import LabelEncoder
 from skops import io as skops_io
 import joblib
+
+
+# setup mlflow
+mlflow.sklearn.autolog()
+mlflow.set_tracking_uri("http://localhost:5000")
+
 
 try:
     df = pd.read_csv('../data/gender.csv')
@@ -48,33 +55,34 @@ models = {
 }
 
 results = []
-for name, model in models.items():
-    print(f"Melatih model {name}...")
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
+with mlflow.start_run():
+    for name, model in models.items():
+        print(f"Melatih model {name}...")
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
 
-    acc = accuracy_score(y_test, y_pred)
-    prec = precision_score(y_test, y_pred, average="weighted")
-    rec = recall_score(y_test, y_pred, average="weighted")
-    f1 = f1_score(y_test, y_pred, average="weighted")
+        acc = accuracy_score(y_test, y_pred)
+        prec = precision_score(y_test, y_pred, average="weighted")
+        rec = recall_score(y_test, y_pred, average="weighted")
+        f1 = f1_score(y_test, y_pred, average="weighted")
 
-    results.append([name, acc, prec, rec, f1])
+        results.append([name, acc, prec, rec, f1])
 
-    # 4. Save model
-    model_path = f"../models/{name}.skops"
-    skops_io.dump(model, model_path)
-    print(f"Model {name} disimpan di {model_path}")
+        # 4. Save model
+        model_path = f"../models/{name}.skops"
+        skops_io.dump(model, model_path)
+        print(f"Model {name} disimpan di {model_path}")
 
-    # 5. Save confusion matrix
-    cm = confusion_matrix(y_test, y_pred)
-    plt.figure(figsize=(4, 3))
-    sns.heatmap(cm, annot=True, fmt='d', cmap="Blues", xticklabels=class_names, yticklabels=class_names)
-    plt.title(f'Confusion Matrix - {name}')
-    plt.xlabel("Predicted")
-    plt.ylabel("True")
-    plt.tight_layout()
-    plt.savefig(f"../results/matrix/confusion_matrix_{name}.png")
-    plt.close()
+        # 5. Save confusion matrix
+        cm = confusion_matrix(y_test, y_pred)
+        plt.figure(figsize=(4, 3))
+        sns.heatmap(cm, annot=True, fmt='d', cmap="Blues", xticklabels=class_names, yticklabels=class_names)
+        plt.title(f'Confusion Matrix - {name}')
+        plt.xlabel("Predicted")
+        plt.ylabel("True")
+        plt.tight_layout()
+        plt.savefig(f"../results/matrix/confusion_matrix_{name}.png")
+        plt.close()
 
 results_df = pd.DataFrame(results, columns=["Model", "Accuracy", "Precision", "Recall", "F1-Score"])
 results_df.to_csv("../results/csv/evaluation_metrics.csv", index=False)
