@@ -33,14 +33,14 @@ hf-login:
 push-hub:
 	rm -rf huggingface-space
 	git clone https://huggingface.co/spaces/FaizKhalifah/tugasmlops huggingface-space
+	mkdir -p huggingface-space/models huggingface-space/results
+	cp -r app/* huggingface-space/
+	cp -r models/*.skops huggingface-space/models/
+	cp -r results huggingface-space/
+
 	cd huggingface-space && \
 	git config user.name "${USER_NAME}" && \
 	git config user.email "${USER_EMAIL}" && \
-	git remote set-url origin https://user:${HF}@huggingface.co/spaces/FaizKhalifah/tugasmlops &&\
-	cp -r ../app/* ./ && \
-	cp -r ../models/* ./models/ && \
-	cp -r ../results ./results && \
-	git config lfs.allowincompletepush true && \
 	git lfs install && \
 	git lfs track "*.skops" "*.png" "*.csv" && \
 	git add .gitattributes && \
