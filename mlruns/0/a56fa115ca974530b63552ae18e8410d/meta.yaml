@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/a56fa115ca974530b63552ae18e8410d/artifacts
+end_time: 1752499761559
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a56fa115ca974530b63552ae18e8410d
+run_name: sincere-goat-891
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752499698773
+status: 3
+tags: []
+user_id: Faiz
