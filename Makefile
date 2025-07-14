@@ -38,7 +38,7 @@ push-hub:
 	git config user.email "${USER_EMAIL}" && \
 	git remote set-url origin https://user:${HF}@huggingface.co/spaces/FaizKhalifah/tugasmlops &&\
 	cp -r ../app/* ./ && \
-	cp -r ../models ./models && \
+	cp -r ../models/* ./models/ && \
 	cp -r ../results ./results && \
 	git lfs install && \
 	git lfs track "*.skops" "*.png" "*.csv" && \
