@@ -40,6 +40,7 @@ push-hub:
 	cp -r ../app/* ./ && \
 	cp -r ../models/* ./models/ && \
 	cp -r ../results ./results && \
+	git config lfs.allowincompletepush true && \
 	git lfs install && \
 	git lfs track "*.skops" "*.png" "*.csv" && \
 	git add .gitattributes && \
