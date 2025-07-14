@@ -69,7 +69,7 @@ with mlflow.start_run():
         results.append([name, acc, prec, rec, f1])
 
         # 4. Save model
-        model_path = f"../models/{name}.skops"
+        model_path = f"../models/models/{name}.skops"
         skops_io.dump(model, model_path)
         print(f"Model {name} disimpan di {model_path}")
 

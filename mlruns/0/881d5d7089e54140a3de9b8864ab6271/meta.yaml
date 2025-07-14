@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/881d5d7089e54140a3de9b8864ab6271/artifacts
+end_time: 1752488817186
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 881d5d7089e54140a3de9b8864ab6271
+run_name: loud-midge-850
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752488750490
+status: 3
+tags: []
+user_id: Faiz
