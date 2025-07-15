@@ -39,14 +39,7 @@ push-hub:
 	# Buat direktori jika belum ada
 	mkdir -p huggingface-space/models huggingface-space/results huggingface-space/data
 
-	# Salin semua file project (app, models, dvc metadata)
-	cp -r app huggingface-space/
-	cp -r models huggingface-space/models/
-	cp -r results huggingface-space/results/
-	cp -r data huggingface-space/data/
-	cp -r .dvc .dvcignore huggingface-space/
-	cp dvc.yaml huggingface-space/
-	cp requirements.txt huggingface-space/
+	
 
 	# Konfigurasi DVC di dalam Hugging Face space
 	cd huggingface-space && \
@@ -56,6 +49,15 @@ push-hub:
 	dvc remote modify origin --local access_key_id ${DAGSHUB_KEY} && \
 	dvc remote modify origin --local secret_access_key ${DAGSHUB_SECRET} && \
 	dvc pull
+
+	# Salin semua file project (app, models, dvc metadata)
+	cp -r app huggingface-space/
+	cp -r models huggingface-space/models/
+	cp -r results huggingface-space/results/
+	cp -r data huggingface-space/data/
+	cp -r .dvc .dvcignore huggingface-space/
+	cp dvc.yaml huggingface-space/
+	cp requirements.txt huggingface-space/
 
 	# Git LFS setup
 	cd huggingface-space && \
