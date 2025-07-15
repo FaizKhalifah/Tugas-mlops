@@ -30,27 +30,45 @@ hf-login:
 	huggingface-cli login --token ${HF} --add-to-git-credential
 
 push-hub:
+	# Bersihkan folder jika sudah ada
 	rm -rf huggingface-space
+
+	# Clone dari Hugging Face Space
 	git clone https://huggingface.co/spaces/FaizKhalifah/tugasmlops huggingface-space
+
+	# Buat direktori jika belum ada
 	mkdir -p huggingface-space/models huggingface-space/results huggingface-space/data
 
-	# copy code & dvc tracking metadata
-	cp -r app/* huggingface-space/
-	cp -r models/*.dvc huggingface-space/models/ || true
-	cp -r data/*.dvc huggingface-space/data/ || true
+	# Salin semua file project (app, models, dvc metadata)
+	cp -r app huggingface-space/
+	cp -r models huggingface-space/models/
+	cp -r results huggingface-space/results/
+	cp -r data huggingface-space/data/
 	cp -r .dvc .dvcignore huggingface-space/
-	cp -r results huggingface-space/
+	cp dvc.yaml huggingface-space/
+	cp requirements.txt huggingface-space/
 
+	# Konfigurasi DVC di dalam Hugging Face space
+	cd huggingface-space && \
+	dvc init --no-scm && \
+	dvc remote add -d origin s3://dvc && \
+	dvc remote modify origin endpointurl https://dagshub.com/FaizKhalifah/Tugas-mlops.s3 && \
+	dvc remote modify origin --local access_key_id ${DAGSHUB_KEY} && \
+	dvc remote modify origin --local secret_access_key ${DAGSHUB_SECRET} && \
+	dvc pull
+
+	# Git LFS setup
 	cd huggingface-space && \
 	git config user.name "${USER_NAME}" && \
 	git config user.email "${USER_EMAIL}" && \
-	pip install dvc[s3,gs,ssh,gdrive] --quiet && \
-	dvc pull && \
 	git lfs install && \
 	git lfs track "*.skops" "*.png" "*.csv" && \
-	git add .gitattributes && \
+	git add .gitattributes
+
+	# Git commit & push
+	cd huggingface-space && \
 	git add . && \
-	git commit -m "Update space" || echo "Nothing to commit" && \
+	git commit -m "Update with DVC S3 pull from DagsHub" || echo "Nothing to commit" && \
 	git push origin main
 
 
