@@ -29,25 +29,29 @@ hf-login:
 	git config --global credential.helper store
 	huggingface-cli login --token ${HF} --add-to-git-credential
 
-
 push-hub:
 	rm -rf huggingface-space
 	git clone https://huggingface.co/spaces/FaizKhalifah/tugasmlops huggingface-space
-	mkdir -p huggingface-space/models huggingface-space/results
+	mkdir -p huggingface-space/models huggingface-space/results huggingface-space/data
+
+	# copy code & dvc tracking metadata
 	cp -r app/* huggingface-space/
-	cp -r models/*.skops huggingface-space/models/
+	cp -r models/*.dvc huggingface-space/models/ || true
+	cp -r data/*.dvc huggingface-space/data/ || true
+	cp -r .dvc .dvcignore huggingface-space/
 	cp -r results huggingface-space/
 
 	cd huggingface-space && \
 	git config user.name "${USER_NAME}" && \
 	git config user.email "${USER_EMAIL}" && \
+	pip install dvc[s3,gs,ssh,gdrive] --quiet && \
+	dvc pull && \
 	git lfs install && \
 	git lfs track "*.skops" "*.png" "*.csv" && \
 	git add .gitattributes && \
 	git add . && \
 	git commit -m "Update space" || echo "Nothing to commit" && \
 	git push origin main
-
 
 
 deploy: hf-login push-hub
