@@ -18,7 +18,9 @@ jobs:
         lfs: true
 
     - name: Set up Python and Hugging Face CLI
-      run: pip install -U "huggingface_hub[cli]"
+      run: | 
+        pip install -U "huggingface_hub[cli]"
+        pip install dvc[s3]
 
     - name: Set up Git LFS
       run: |
@@ -32,4 +34,6 @@ jobs:
         HF: ${{ secrets.HF }}
         NAME: ${{ secrets.USER_NAME }}
         EMAIL: ${{ secrets.USER_EMAIL }}
+        DAGSHUB_KEY: ${{ secrets.DAGSHUB_KEY }}
+        DAGSHUB_SECRET: ${{ secrets.DAGSHUB_SECRET }}
       run: make deploy HF=${HF} USER_NAME=$NAME USER_EMAIL=$EMAIL
