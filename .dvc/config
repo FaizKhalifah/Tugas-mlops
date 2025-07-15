@@ -4,3 +4,6 @@
     url = https://dagshub.com/FaizKhalifah/tugasmlops-storage.git
     user = FaizKhalifah
     password = 96aaa384f7dedaabf88162194f6c89c7e53e2f5f
+['remote "origin"']
+    url = s3://dvc
+    endpointurl = https://dagshub.com/FaizKhalifah/Tugas-mlops.s3
