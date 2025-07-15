@@ -51,12 +51,7 @@ push-hub:
 	dvc pull
 
 	# Salin semua file project (app, models, dvc metadata)
-	cp -r app huggingface-space/
-	cp -r models huggingface-space/models/
-	cp -r results huggingface-space/results/
-	cp -r data huggingface-space/data/
-	cp -r .dvc .dvcignore huggingface-space/
-	cp dvc.yaml huggingface-space/
+	cp -r app/* huggingface-space/
 	cp requirements.txt huggingface-space/
 
 	# Git LFS setup
