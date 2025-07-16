@@ -47,13 +47,11 @@ print(f"Ukuran data uji: {X_test.shape}")
 print("-" * 35)
 
 models = {
-    "Logistic Regression": LogisticRegression(),
-    "K-Nearest Neighbors": KNeighborsClassifier(),
+    "Logistic Regression": LogisticRegression(C=0.01), 
+    "K-Nearest Neighbors": KNeighborsClassifier(n_neighbors=3), 
     "Gaussian Naive Bayes": GaussianNB(),
-    "Bernoulli Naive Bayes": BernoulliNB(),
-    "Multinomial Naive Bayes": MultinomialNB(),
-    "Decision Tree": DecisionTreeClassifier(),
-    "Random Forest": RandomForestClassifier()
+    "Decision Tree": DecisionTreeClassifier(random_state=42),
+    "Random Forest": RandomForestClassifier(random_state=42)
 }
 
 results = []
