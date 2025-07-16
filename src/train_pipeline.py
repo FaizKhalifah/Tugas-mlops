@@ -7,6 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 from sklearn.preprocessing import LabelEncoder
 from skops import io as skops_io
@@ -46,12 +47,13 @@ print(f"Ukuran data uji: {X_test.shape}")
 print("-" * 35)
 
 models = {
-    "Logistic Regression": LogisticRegression(), #LogisticRegression(max_iter=200)
-    "K-Nearest Neighbors (KNN)": KNeighborsClassifier(), #KNeighborsClassifier(n_neighbors=5)
+    "Logistic Regression": LogisticRegression(),
+    "K-Nearest Neighbors": KNeighborsClassifier(),
     "Gaussian Naive Bayes": GaussianNB(),
     "Bernoulli Naive Bayes": BernoulliNB(),
     "Multinomial Naive Bayes": MultinomialNB(),
     "Decision Tree": DecisionTreeClassifier(),
+    "Random Forest": RandomForestClassifier()
 }
 
 results = []
