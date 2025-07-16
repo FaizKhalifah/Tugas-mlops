@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/e01a1a8f168947f68c42d323fab4a9ed/artifacts
+end_time: 1752664900127
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e01a1a8f168947f68c42d323fab4a9ed
+run_name: salty-whale-35
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752664861927
+status: 4
+tags: []
+user_id: Faiz
