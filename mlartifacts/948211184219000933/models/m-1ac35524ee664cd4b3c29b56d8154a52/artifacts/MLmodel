@@ -1,0 +1,33 @@
+artifact_path: mlflow-artifacts:/948211184219000933/models/m-1ac35524ee664cd4b3c29b56d8154a52/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.10
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.0
+is_signature_from_type_hint: false
+mlflow_version: 3.1.1
+model_id: m-1ac35524ee664cd4b3c29b56d8154a52
+model_size_bytes: 1032
+model_uuid: m-1ac35524ee664cd4b3c29b56d8154a52
+prompts: null
+run_id: 9632f983e703424fb2eb16def2a3ca3a
+signature:
+  inputs: '[{"type": "long", "name": "long_hair", "required": true}, {"type": "double",
+    "name": "forehead_width_cm", "required": true}, {"type": "double", "name": "forehead_height_cm",
+    "required": true}, {"type": "long", "name": "nose_wide", "required": true}, {"type":
+    "long", "name": "nose_long", "required": true}, {"type": "long", "name": "lips_thin",
+    "required": true}, {"type": "long", "name": "distance_nose_to_lip_long", "required":
+    true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "str", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-07-17 01:38:47.375723'

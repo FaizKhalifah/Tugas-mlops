@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/948211184219000933/18dc170d65954e1fadcfc7d40cc5a9e1/artifacts
+end_time: 1752716238482
+entry_point_name: ''
+experiment_id: '948211184219000933'
+lifecycle_stage: active
+run_id: 18dc170d65954e1fadcfc7d40cc5a9e1
+run_name: luxuriant-grub-195
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752716200581
+status: 4
+tags: []
+user_id: Faiz

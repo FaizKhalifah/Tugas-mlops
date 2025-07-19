@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/948211184219000933/22f452fa9d9942da8d9c76881c9df9c6/artifacts
+end_time: 1752716310890
+entry_point_name: ''
+experiment_id: '948211184219000933'
+lifecycle_stage: active
+run_id: 22f452fa9d9942da8d9c76881c9df9c6
+run_name: skillful-eel-915
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752716294788
+status: 3
+tags: []
+user_id: Faiz
