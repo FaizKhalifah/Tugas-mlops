@@ -18,9 +18,10 @@ matplotlib.use('Agg')  # non-GUI backend
 
   
 # setup mlflow
-mlflow.sklearn.autolog()
 mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.sklearn.autolog()
 
+print("Tracking URI:", mlflow.get_tracking_uri())
 
 try:
     df = pd.read_csv('../data/combined_data.csv')
@@ -38,6 +39,8 @@ print(df['gender'].value_counts())
 
 X = df.drop('gender', axis=1)
 y = df['gender']
+
+print(mlflow.get_tracking_uri())
 
 le = LabelEncoder()
 y_encoded = le.fit_transform(y)
@@ -61,7 +64,7 @@ results = []
 mlflow.set_experiment("gender_classification")
 
 for name, model in models.items():
-    with mlflow.start_run(run_name=name.replace(" ", "_")):
+    with mlflow.start_run(run_name=name.replace(" ", "_")) as run:
         print(f"Melatih model {name}...")
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
@@ -97,6 +100,11 @@ for name, model in models.items():
 
         image_path = f"../results/matrix/confusion_matrix_{name}.png"
         mlflow.log_artifact(image_path, artifact_path="confusion_matrices")
+
+        model_uri = f"runs:/{run.info.run_id}/model"
+        print("Model URI:", model_uri)
+        print("tracking uri ",mlflow.get_tracking_uri())
+
 
 results_df = pd.DataFrame(results, columns=["Model", "Accuracy", "Precision", "Recall", "F1-Score"])
 results_df.to_csv("../results/csv/evaluation_metrics.csv", index=False)

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/948211184219000933/a6c07428768c418daf36dd7bf44544d0/artifacts
+end_time: 1752905710211
+entry_point_name: ''
+experiment_id: '948211184219000933'
+lifecycle_stage: active
+run_id: a6c07428768c418daf36dd7bf44544d0
+run_name: Decision_Tree
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752905696699
+status: 3
+tags: []
+user_id: Faiz

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/948211184219000933/a96117569fad4ec9b5e56a1e22e4d98c/artifacts
+end_time: 1752906729379
+entry_point_name: ''
+experiment_id: '948211184219000933'
+lifecycle_stage: active
+run_id: a96117569fad4ec9b5e56a1e22e4d98c
+run_name: Gaussian_Naive_Bayes
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752906711785
+status: 3
+tags: []
+user_id: Faiz

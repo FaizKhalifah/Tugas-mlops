@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/948211184219000933/6541a559695047fb8f21c99758e70111/artifacts
+end_time: 1752991855588
+entry_point_name: ''
+experiment_id: '948211184219000933'
+lifecycle_stage: active
+run_id: 6541a559695047fb8f21c99758e70111
+run_name: K-Nearest_Neighbors
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752991843245
+status: 3
+tags: []
+user_id: Faiz

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/948211184219000933/8ab8bfffd1e540acb463cbd102c9b5a7/artifacts
+end_time: 1752906695542
+entry_point_name: ''
+experiment_id: '948211184219000933'
+lifecycle_stage: active
+run_id: 8ab8bfffd1e540acb463cbd102c9b5a7
+run_name: Logistic_Regression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752906674604
+status: 3
+tags: []
+user_id: Faiz

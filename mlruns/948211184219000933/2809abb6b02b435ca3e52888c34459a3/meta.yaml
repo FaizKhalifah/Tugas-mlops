@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/948211184219000933/2809abb6b02b435ca3e52888c34459a3/artifacts
+end_time: 1752907158144
+entry_point_name: ''
+experiment_id: '948211184219000933'
+lifecycle_stage: active
+run_id: 2809abb6b02b435ca3e52888c34459a3
+run_name: Random_Forest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752907139974
+status: 3
+tags: []
+user_id: Faiz
