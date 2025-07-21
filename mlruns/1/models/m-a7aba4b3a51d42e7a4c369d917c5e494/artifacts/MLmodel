@@ -1,0 +1,22 @@
+artifact_path: file:D:/Projekan/Personal/GenderClassification/tugasmlops/mlruns/1/models/m-a7aba4b3a51d42e7a4c369d917c5e494/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.10
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.0
+mlflow_version: 3.1.1
+model_id: m-a7aba4b3a51d42e7a4c369d917c5e494
+model_size_bytes: 1084
+model_uuid: m-a7aba4b3a51d42e7a4c369d917c5e494
+prompts: null
+run_id: 30bc221cfd754e388dcfc21218e651a6
+utc_time_created: '2025-07-19 12:38:26.221630'

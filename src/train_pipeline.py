@@ -13,14 +13,18 @@ from sklearn.preprocessing import LabelEncoder
 from skops import io as skops_io
 import joblib
 
+import matplotlib
+matplotlib.use('Agg')  # non-GUI backend
 
+  
 # setup mlflow
-mlflow.sklearn.autolog()
 mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.sklearn.autolog()
 
+print("Tracking URI:", mlflow.get_tracking_uri())
 
 try:
-    df = pd.read_csv('../data/gender.csv')
+    df = pd.read_csv('../data/combined_data.csv')
     print("Dataset berhasil dimuat.")
 except FileNotFoundError:
     print("Error: Pastikan file berada di direktori yang sama atau telah diunggah.")
@@ -35,6 +39,8 @@ print(df['gender'].value_counts())
 
 X = df.drop('gender', axis=1)
 y = df['gender']
+
+print(mlflow.get_tracking_uri())
 
 le = LabelEncoder()
 y_encoded = le.fit_transform(y)
@@ -55,8 +61,10 @@ models = {
 }
 
 results = []
-with mlflow.start_run():
-    for name, model in models.items():
+mlflow.set_experiment("gender_classification")
+
+for name, model in models.items():
+    with mlflow.start_run(run_name=name.replace(" ", "_")) as run:
         print(f"Melatih model {name}...")
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
@@ -66,6 +74,12 @@ with mlflow.start_run():
         rec = recall_score(y_test, y_pred, average="weighted")
         f1 = f1_score(y_test, y_pred, average="weighted")
 
+        mlflow.log_metric("accuracy", acc)
+        mlflow.log_metric("precision", prec)
+        mlflow.log_metric("recall", rec)
+        mlflow.log_metric("f1_score", f1)
+
+        mlflow.sklearn.log_model(model, artifact_path="model", registered_model_name=name.replace(" ", "_"))
         results.append([name, acc, prec, rec, f1])
 
         # 4. Save model
@@ -83,6 +97,14 @@ with mlflow.start_run():
         plt.tight_layout()
         plt.savefig(f"../results/matrix/confusion_matrix_{name}.png")
         plt.close()
+
+        image_path = f"../results/matrix/confusion_matrix_{name}.png"
+        mlflow.log_artifact(image_path, artifact_path="confusion_matrices")
+
+        model_uri = f"runs:/{run.info.run_id}/model"
+        print("Model URI:", model_uri)
+        print("tracking uri ",mlflow.get_tracking_uri())
+
 
 results_df = pd.DataFrame(results, columns=["Model", "Accuracy", "Precision", "Recall", "F1-Score"])
 results_df.to_csv("../results/csv/evaluation_metrics.csv", index=False)

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/948211184219000933/6eb4c07b9e5743618d9756499d9482ca/artifacts
+end_time: 1752716326854
+entry_point_name: ''
+experiment_id: '948211184219000933'
+lifecycle_stage: active
+run_id: 6eb4c07b9e5743618d9756499d9482ca
+run_name: adorable-pig-427
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752716311141
+status: 3
+tags: []
+user_id: Faiz

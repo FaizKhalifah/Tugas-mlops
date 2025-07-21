@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/948211184219000933/494df25f039444a69501cd346d661f88/artifacts
+end_time: 1752717022476
+entry_point_name: ''
+experiment_id: '948211184219000933'
+lifecycle_stage: active
+run_id: 494df25f039444a69501cd346d661f88
+run_name: aged-asp-669
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752716447278
+status: 3
+tags: []
+user_id: Faiz
