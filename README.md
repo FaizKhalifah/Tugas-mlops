@@ -30,11 +30,13 @@ Model yang digunakan adalah **Regresi Logistik**, dan di-deploy menggunakan **Gr
 
 ## 💡 Fitur
 
-- Model klasifikasi gender menggunakan regresi logistik
-- UI interaktif dengan Gradio
-- Di-hosting di Hugging Face Spaces
-- Manajemen token rahasia untuk deployment
-- Siap untuk integrasi CI/CD dan kontrol versi
+- Model klasifikasi gender menggunakan regresi logistik.
+- UI interaktif dengan Gradio untuk pengujian model secara langsung.
+- Di-hosting di Hugging Face Spaces untuk akses publik.
+- Manajemen data dan model menggunakan DVC.
+- Monitoring data drift dengan Evidently, Prometheus, dan Grafana.
+- Dikemas dalam Docker untuk portabilitas dan reproduktibilitas.
+- Alur kerja CI/CD terintegrasi dengan GitHub Actions.
 
 ---
 
@@ -65,6 +67,9 @@ Model yang digunakan adalah **Regresi Logistik**, dan di-deploy menggunakan **Gr
 | **Grafana**                    | Platform analitik dan visualisasi untuk metrik         |
 | **DVC (Data Version Control)** | Sistem kontrol versi untuk data dan model              |
 | **SDV (Synthetic Data Vault)** | Library untuk membuat data sintetis berkualitas tinggi |
+| **Discord**                    | Platform sebagai notifikasi alert                      |
+| **MLflow**                     | Platform untuk melacak siklus hidup eksperimen ML      |
+	
 
 ---
 
@@ -74,6 +79,16 @@ Model yang digunakan adalah **Regresi Logistik**, dan di-deploy menggunakan **Gr
 - **Tugas**: Prediksi gender
 - **Input**: Fitur data terstruktur (Rambut Panjang, Lebar Dahi, Tinggi Dahi, Hidung Lebar, Hidung Panjang, Bibir Tipis)
 - **Output**: Klasifikasi gender – Pria atau Wanita
+
+---
+
+## ♻️ Alur Kerja MLOps
+- Proyek ini mengadopsi siklus MLOps yang terstruktur sebagai berikut:
+- **1. Eksperimen: MLflow** digunakan untuk melacak setiap percobaan pelatihan model, termasuk parameter dan metrik performa, untuk memilih model terbaik.
+- **2. Versioning: Git** digunakan untuk mengelola versi kode, sementara DVC digunakan untuk mengelola versi dataset dan file model yang besar agar repositori tetap ringan.
+- **3. Packaging: Dockerfile** disiapkan untuk membungkus aplikasi, model, dan semua dependensinya ke dalam sebuah container yang portabel dan konsisten.
+- **4. Deployment (CI/CD): Gradio** membangun antarmuka pengguna yang sederhana. Hugging Face Spaces secara otomatis men-deploy aplikasi dari repositori GitHub setiap kali ada perubahan pada branch utama.
+- **5. Monitoring: Prometheus** mengumpulkan metrik ini secara berkala, dan Grafana memvisualisasikannya serta mengirimkan peringatan (alert) jika terdeteksi adanya masalah.
 
 ---
 
