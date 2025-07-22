@@ -1,14 +1,16 @@
+# 225150207111069_Raihan Fadhillah Baihaqi 			
+# 225150207111075_Hernando Atha 				
+# 225150207111066_Muhammad Alfaiz Khalifah Alamsyah 	
+# 225150200111034_Qyan Rommy Mario				
+# 225150201111029_Davin Dalana Fidelio Fredra	
+
 .PHONY: train evaluate deploy clean update-branch
-
-
 
 train:
 	python src/train_pipeline.py
 
 # evaluate:
 # 	python src/evaluate.py
-
-
 
 clean:
 	rm -rf models/*.skops results/*.csv results/*.png
