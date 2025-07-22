@@ -1,3 +1,9 @@
+# 225150207111069_Raihan Fadhillah Baihaqi 			
+# 225150207111075_Hernando Atha 				
+# 225150207111066_Muhammad Alfaiz Khalifah Alamsyah 	
+# 225150200111034_Qyan Rommy Mario				
+# 225150201111029_Davin Dalana Fidelio Fredra			
+
 import gradio as gr
 import pandas as pd
 from skops import io as skops_io
